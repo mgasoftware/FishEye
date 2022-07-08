@@ -1,15 +1,16 @@
+    // Fontions d'usine en asynchrone de récupération des photographes
     async function getPhotographers() {
-        // Penser à remplacer par les données récupérées dans le json
+        // Récupération des données JSON
         let data = await fetch('../../data/photographers.json').then(response => response.json());
         console.log(data['photographers']);
         
         const photographers = data['photographers'];
 
-        // et bien retourner le tableau photographers seulement une fois
         return ({
             photographers: [...photographers]})
     }
 
+    //Fonction de d'affichage d'un photographe
     async function displayData(photographers) {
         const photographersSection = document.querySelector(".photographer_section");
 
@@ -21,7 +22,6 @@
     };
 
     async function init() {
-        // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
         displayData(photographers);
     };
