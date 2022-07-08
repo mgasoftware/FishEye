@@ -9,11 +9,11 @@
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <img src="assets/images/logo.png" class="logo" alt="FIsheye Home page"/>
     </header>
     <main id="main">
       <div class="photograph-header">
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+        <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
       </div>
     </main>
     <div id="contact_modal">
@@ -25,7 +25,7 @@
 				<form>
 					<div>
 						<label>Prénom</label>
-						<input />
+						<input type="text" aria-labelledby="First name"/>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>

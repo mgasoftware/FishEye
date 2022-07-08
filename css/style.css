@@ -73,9 +73,8 @@ h1 {
     text-align: center;
 }
 
-.photographer_section article p:nth-child(2){
+.photographer_section article .price {
     font-size: 9px;
     line-height: 12px;
-    /* color: #757575; */
-    color: red;
+    color: #757575;
 }
