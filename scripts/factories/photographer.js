@@ -28,5 +28,14 @@ function photographerFactory(data) {
         article.appendChild(p2);
         return (article);
     }
-    return { name, id, picture, getUserCardDOM }
+
+    function getProfilDOM() {
+        const article = document.createElement('article');
+        const img = document.createElement('img');
+        img.setAttribute("src", picture);
+        img.setAttribute("alt", name);
+        article.appendChild(img);
+        return (article);
+    }
+    return { name, id, picture, getUserCardDOM, getProfilDOM }
 }
