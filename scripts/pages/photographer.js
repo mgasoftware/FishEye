@@ -17,7 +17,7 @@ async function foundSelectPhotographer() {
 async function foundMedia() {
     let data = await fetch('../../data/photographers.json').then(response => response.json());
     let medias = data.media;
-    let media = {};
+    let media = new Array();
 
     for (let i = 0; i < medias.length; i++) {
         if (photographerID == medias[i].photographerId) {
@@ -25,7 +25,7 @@ async function foundMedia() {
         }
     }
 
-    console.log(media);
+    media = media.filter((x) => String(x || '').trim());
 
     return ({ media });
 }
@@ -47,13 +47,14 @@ async function displayData(photographer) {
 
 async function displayMedia(medias) {
     const photographBody = document.querySelector(".photograph-body");
+    console.log(medias.media);
 
-    Object.keys(medias).forEach((media) => {
-        console.log(`Error${media}`);
+    medias.media.forEach(media => {
         const mediaModel = mediaFactory(media);
         const userMediaDOM = mediaModel.getUserMediaPicture();
         photographBody.appendChild(userMediaDOM);
-    }) 
+    });
+
 };
 
 async function init() {
@@ -61,7 +62,6 @@ async function init() {
     const medias  = await foundMedia();
     displayData(photographer);
     displayMedia(medias);
-    console.log(medias);
 };
 
 init();
