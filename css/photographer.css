@@ -3,9 +3,73 @@
 }
 
 .photograph-header {
-    background-color: #FAFAFA;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #fafafa;
     height: 300px;
     margin: 0 100px;
+    border-radius: 5px;
+}
+
+.picture{
+    height: 200px;
+    width: 200px;
+    margin-bottom: 20px;
+    order: 3;
+}
+
+.picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background: #C4C4C4;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.photograph-info h2 {
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 83px;
+    color: #d3573c;
+}
+
+.photograph-info h3 {
+    font-weight: 400;
+    font-size: 24px;
+    margin-bottom: 20px;
+    line-height: 31px;
+}
+
+.photograph-info p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 23px;
+    color: #525252;
+}
+
+.photograph-like {
+    max-width: 376px;
+    max-height: 89px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 80%;
+    right: 0%;
+    top: 92%;
+    bottom: 0%;
+    background: #DB8876;
+    border-radius: 5px;
+}
+
+.photograph-like .price{
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 31px;
+    text-align: center;
+    color: #000000;
 }
 
 .contact_button {
@@ -16,14 +80,15 @@
     width: 170px;
     height: 70px;
     border: none;
-    background-color: #901C1C;
+    background-color: #901c1c;
     border-radius: 5px;
     cursor: pointer;
+    order: 2;
 }
 
 .modal {
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: #db8876;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -56,7 +121,7 @@ form {
 }
 
 form label {
-    color: #312E2E;
+    color: #312e2e;
     font-size: 36px;
 }
 

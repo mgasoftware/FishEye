@@ -1,37 +1,67 @@
-//Mettre le code JavaScript lié à la page photographer.html
-// Fontions d'usine en asynchrone de récupération des photographes
-async function getPhotographers() {
-    // Récupération des données JSON
+const photographerID = window.location.search.split("?id=").join("");
+
+async function foundSelectPhotographer() {
     let data = await fetch('../../data/photographers.json').then(response => response.json());
-    console.log(data['photographers']);
+    let photographers = data.photographers;
+    let photographer;
 
-    const photographers = data['photographers'];
+    for (let i = 0; i < photographers.length; i++) {
 
-    return ({
-        photographers: [...photographers]
-    })
+        if (photographerID == photographers[i].id) {
+            photographer = photographers[i];
+        }
+    }
+    return ({ photographer });
 }
 
-//Fonction de d'affichage d'un photographe
-async function displayData(photographers) {
-    const photographersHeader = document.querySelector(".photograph-header");
+async function foundMedia() {
+    let data = await fetch('../../data/photographers.json').then(response => response.json());
+    let medias = data.media;
+    let media = {};
 
-    
+    for (let i = 0; i < medias.length; i++) {
+        if (photographerID == medias[i].photographerId) {
+            media[i] = medias[i];
+        }
+    }
 
-    const photographerModel = photographerFactory(photographers);
-    const profilDOM = photographerModel.getProfilDOM();
-    photographersHeader.appendChild(profilDOM);
+    console.log(media);
 
-    // photographers.forEach((photographer) => {
-    //     const photographerModel = photographerFactory(photographer);
-    //     const userCardDOM = photographerModel.getUserCardDOM();
-    //     photographersSection.appendChild(userCardDOM);
-    // });
+    return ({ media });
+}
+
+async function displayData(photographer) {
+    const photographHeader = document.querySelector(".photograph-header");
+
+    const photographerModel = photographerFactory(photographer);
+
+
+    const userProfilDOM = photographerModel.getProfilInfoDOM();
+    const userIMGDOM = photographerModel.getProfilIMGDOM();
+
+
+    photographHeader.appendChild(userProfilDOM);
+    photographHeader.appendChild(userIMGDOM);
+};
+
+
+async function displayMedia(medias) {
+    const photographBody = document.querySelector(".photograph-body");
+
+    Object.keys(medias).forEach((media) => {
+        console.log(`Error${media}`);
+        const mediaModel = mediaFactory(media);
+        const userMediaDOM = mediaModel.getUserMediaPicture();
+        photographBody.appendChild(userMediaDOM);
+    }) 
 };
 
 async function init() {
-    const { photographers } = await getPhotographers();
-    displayData(photographers);
+    const { photographer } = await foundSelectPhotographer();
+    const medias  = await foundMedia();
+    displayData(photographer);
+    displayMedia(medias);
+    console.log(medias);
 };
 
 init();
