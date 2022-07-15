@@ -32,16 +32,19 @@ async function foundMedia() {
 
 async function displayData(photographer) {
     const photographHeader = document.querySelector(".photograph-header");
+    const modalHeader = document.querySelector(".modal-header");
 
     const photographerModel = photographerFactory(photographer);
 
 
     const userProfilDOM = photographerModel.getProfilInfoDOM();
     const userIMGDOM = photographerModel.getProfilIMGDOM();
+    const userNameDOM = photographerModel.getProfilNameDOM();
 
 
     photographHeader.appendChild(userProfilDOM);
     photographHeader.appendChild(userIMGDOM);
+    modalHeader.appendChild(userNameDOM);
 };
 
 

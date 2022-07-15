@@ -22,6 +22,7 @@ function photographerFactory(data) {
         const a = document.createElement('a');
         a.href = 'http://127.0.0.1:5500/photographer.html?id=' + id;
         a.setAttribute("role", name);
+
         div.appendChild(img);
         a.appendChild(div);
         a.appendChild(h2);
@@ -60,5 +61,14 @@ function photographerFactory(data) {
         div2.appendChild(p2);
         return (div);
     }
-    return { name, id, picture, getUserCardDOM, getProfilIMGDOM, getProfilInfoDOM }
+
+    function getProfilNameDOM() {
+        const div = document.querySelector('.contact-me');
+        const h2 = document.createElement('h2');
+        h2.textContent = name;
+        div.appendChild(h2);
+        return (div);
+    }
+    
+    return { name, id, picture, getUserCardDOM, getProfilIMGDOM, getProfilInfoDOM, getProfilNameDOM }
 }

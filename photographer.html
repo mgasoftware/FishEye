@@ -1,46 +1,63 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <title>Fisheye - photographe </title>
-  </head>
-  <body>
-    <header>
-      <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" alt="FIsheye Home page"/>
-      </a>
-    </header>
-    <main id="main">
-      <div class="photograph-header">
-        <div class="photograph-info"></div>
-        <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
-      </div>
-      <div class="photograph-body"></div>
-    </main>
-    <aside class="photograph-like">
 
-    </aside>
-    <div id="contact_modal">
-			<div class="modal">
-				<header>
+<head>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <meta charset="utf-8">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+  <title>Fisheye - photographe </title>
+</head>
+
+<body>
+  <header>
+    <a href="index.html">
+      <img src="assets/images/logo.png" class="logo" alt="FIsheye Home page" />
+    </a>
+  </header>
+  <main id="main" aria-hidden="false">
+    <div class="photograph-header">
+      <div class="photograph-info"></div>
+      <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
+    </div>
+    <div class="photograph-body"></div>
+  </main>
+  <aside class="photograph-like" aria-hidden="false">
+  </aside>
+  <div id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="Contactez Moi">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="contact-me">
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
-        </header>
-				<form>
-					<div>
-						<label>Prénom</label>
-						<input type="text" aria-labelledby="First name"/>
-					</div>
-          <button class="contact_button">Envoyer</button>
-				</form>
-			</div>
-		</div>
-    <script src="/scripts/utils/contactForm.js"></script>
-    <script src="scripts/factories/Photographer.js"></script>
-    <script src="scripts/pages/photographer.js"></script>
-    <script src="scripts/factories/media.js"></script>
-  </body>
+        </div>
+        <img id="close" src="assets/icons/close.svg" onclick="closeModal()" />
+      </div>
+      <form id='form'>
+        <div class="formData">
+          <label>Prénom</label>
+          <input type="text" id="first" name="first" aria-labelledby="First name" />
+        </div>
+        <div class="formData">
+          <label>Nom</label>
+          <input type="text" id="last" name="last" aria-labelledby="Last name" />
+        </div>
+        <div class="formData">
+          <label>Email</label>
+          <input type="email" id="email" name="email" aria-labelledby="Email" />
+        </div>
+        <div class="formData">
+          <label>Votre message</label>
+          <textarea class="msg" type="text" id="message" name="message" aria-labelledby="Your message">
+          </textarea>
+        </div>
+        <button class="contact_button" aria-labelledby="send">Envoyer</button>
+      </form>
+    </div>
+  </div>
+  <script src="/scripts/utils/contactForm.js"></script>
+  <script src="scripts/factories/Photographer.js"></script>
+  <script src="scripts/pages/photographer.js"></script>
+  <script src="scripts/factories/media.js"></script>
+</body>
+
 </html>

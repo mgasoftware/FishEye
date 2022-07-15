@@ -12,7 +12,7 @@
     border-radius: 5px;
 }
 
-.picture{
+.picture {
     height: 200px;
     width: 200px;
     margin-bottom: 20px;
@@ -24,7 +24,7 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    background: #C4C4C4;
+    background: #c4c4c4;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
@@ -68,7 +68,7 @@
     color: black;
 }
 
-.photograph-like .price{
+.photograph-like .price {
     font-weight: 500;
     font-size: 24px;
     line-height: 31px;
@@ -76,14 +76,14 @@
     color: #000000;
 }
 
-.photograph-body{
+.photograph-body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
     margin-top: 100px;
 }
 
-.photograph-body article{
+.photograph-body article {
     justify-self: center;
     display: flex;
     justify-content: center;
@@ -91,19 +91,19 @@
     flex-direction: column;
 }
 
-.media{
+.media {
     width: 350px;
     height: 300px;
 }
 
-.media img{
+.media img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
 
-.media video{
+.media video {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -125,44 +125,53 @@
 }
 
 .modal {
+    width: 669px;
     border-radius: 5px;
     background-color: #db8876;
-    width: 50%;
     position: fixed;
     left: 50%;
     top: 50%;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     z-index: 150;
-    max-width: 669px;
-    max-height: 900px;
+    height: 95%;
+    overflow: auto;
 }
 
-.modal header {
+.modal-header {
+    display: flex;
+    flex-direction: row-reverse;
     justify-content: space-between;
-    width: 100%;
+    margin-left: 35px;
+    margin-right: 35px;
 }
 
-.modal header img {
+.modal-header img {
     cursor: pointer;
+    align-self: baseline;
+    margin-top: 35px;
 }
 
-.modal header h2 {
+.contact-me {
     font-size: 64px;
     font-weight: normal;
-    text-align: center;
+    font-weight: 400;
+    line-height: 83px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 form {
     display: flex;
-    width: 100%;
     flex-direction: column;
-    align-items: flex-start;
+    margin-left: 35px;
+    margin-right: 35px;
 }
 
 form label {
     color: #312e2e;
     font-size: 36px;
+    line-height: 46px;
 }
 
 form div {
@@ -177,5 +186,14 @@ form input {
     width: 100%;
     height: 68px;
     border: none;
+    border-radius: 5px;
+    font-size: 36px;
+}
+
+form textarea {
+    width: 100%;
+    height: 170px;
+    border: none;
+    font-size: 36px;
     border-radius: 5px;
 }
