@@ -1,6 +1,5 @@
 const form = document.getElementById('form');
 const modal = document.getElementById("contact_modal");
-const body = document.querySelector("body");
 const main = document.querySelector("main");
 const aside = document.querySelector("aside");
 const inputs = document.querySelectorAll("#first, #last, #email, #message");

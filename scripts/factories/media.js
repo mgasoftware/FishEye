@@ -12,6 +12,8 @@ function mediaFactory(data) {
             const img = document.createElement('img');
             img.setAttribute("src", picture);
             img.setAttribute("alt", title);
+            img.setAttribute('id', id);
+            img.setAttribute('onclick', 'showLightBox(" '+title+ ' ", " ' +picture+' ", " ' +image+' ", " ' +video+' " , " ' +videoMedia+' ")');
             div.appendChild(img);
         }
         else {
@@ -19,6 +21,7 @@ function mediaFactory(data) {
             const src = document.createElement('source');
             src.setAttribute("src", videoMedia);
             src.setAttribute("type", "video/mp4");
+            vid.setAttribute('onclick', 'showLightBox(" '+title+ ' ", " ' +picture+' ", " ' +image+' ", " ' +video+' " , " ' +videoMedia+' ")');
             vid.appendChild(src);
             div.appendChild(vid);
         }
