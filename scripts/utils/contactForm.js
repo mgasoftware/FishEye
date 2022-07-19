@@ -1,10 +1,19 @@
 const form = document.getElementById('form');
 const modal = document.getElementById("contact_modal");
+const body = document.querySelector('body');
 const main = document.querySelector("main");
 const aside = document.querySelector("aside");
 const inputs = document.querySelectorAll("#first, #last, #email, #message");
 
+function onKeyUp(e) {
+    if (e.code == "Escape") {
+        closeModal();
+    }
+}
+
 async function displayModal() {
+    document.addEventListener('keyup', onKeyUp);
+
     modal.style.display = "block";
     body.style.overflow = "hidden";
     main.setAttribute('aria-hidden', 'true');
@@ -14,6 +23,7 @@ async function displayModal() {
 }
 
 function closeModal() {
+    document.removeEventListener('keyup', onKeyUp);
     modal.style.display = "none";
     body.style.overflow = "scroll";
     main.setAttribute('aria-hidden', 'false');
@@ -21,11 +31,7 @@ function closeModal() {
     modal.setAttribute('aria-hidden', 'true');
 }
 
-document.addEventListener('keydown', function (e) {
-    if (e.code == "Escape") {
-        closeModal();
-    }
-});
+
 
 const resetForm = () => {
     inputs.forEach(input => {

@@ -8,25 +8,24 @@ function mediaFactory(data) {
         const article = document.createElement('article');
         const div = document.createElement('div');
         div.className = "media";
-        if(image !== undefined){
+        if (image !== undefined) {
             const img = document.createElement('img');
             img.setAttribute("src", picture);
             img.setAttribute("alt", title);
             img.setAttribute('id', id);
-            img.setAttribute('onclick', 'showLightBox(" '+title+ ' ", " ' +picture+' ", " ' +image+' ", " ' +video+' " , " ' +videoMedia+' ")');
+            img.setAttribute('onclick', 'Lightbox.init()');
             div.appendChild(img);
         }
         else {
             const vid = document.createElement('video');
             const src = document.createElement('source');
-            src.setAttribute("src", videoMedia);
-            src.setAttribute("type", "video/mp4");
-            vid.setAttribute('onclick', 'showLightBox(" '+title+ ' ", " ' +picture+' ", " ' +image+' ", " ' +video+' " , " ' +videoMedia+' ")');
-            vid.appendChild(src);
+            vid.setAttribute('src', videoMedia);
+            vid.setAttribute('onclick', 'Lightbox.init()');
             div.appendChild(vid);
         }
         article.appendChild(div);
         return (article);
     }
+
     return { photographerID, picture, likes, date, getUserMediaPicture };
 }

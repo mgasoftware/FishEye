@@ -55,7 +55,17 @@
       </form>
     </div>
   </div>
-  <section class="lightbox" role="dialog" aria-label="image closeup view" aria-hidden="true">
+  <section id="lightbox" class="lightbox" role="dialog" aria-label="image closeup view" aria-hidden="true">
+  </section>
+  <!-- <section class="lightbox" role="dialog" aria-label="image closeup view" aria-hidden="true">
+    <button class="lightbox_close"><em class="fas fa-times close-lightbox-media"></em></button>
+    <button class="lightbox_next"><em class="fas fa-chevron-right"></em></button>
+    <button class="lightbox_prev"><em class="fas fa-chevron-left"></em></button>
+    <div class="lightbox_container">
+      <img src="${url}" alt="${title}">
+    </div>
+  </section> -->
+  <!-- <section class="lightbox" role="dialog" aria-label="image closeup view" aria-hidden="true">
     <div class="lightbox-windows">
       <ul class="container-slides"></ul>
       <div class="commandes">
@@ -65,19 +75,19 @@
         <button class="right" aria-label="Next media">
           <em class="fas fa-chevron-right"></em>
         </button>
-        <button class="close" aria-label="Close dialog" onclick="closeLightBox()">
+        <button class="close" aria-label="Close dialog">
           <em class="fas fa-times close-lightbox-media"></em>
         </button>
 
         <h2 class="titre-media-lightbox"></h2>
       </div>
     </div>
-  </section>
+  </section> -->
   <script src="/scripts/utils/contactForm.js"></script>
   <script src="scripts/factories/Photographer.js"></script>
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/factories/media.js"></script>
-  <script src="scripts/utils/lightbox.js"></script>
+  <script src="scripts/utils/lightbox.js" defer></script>
 </body>
 
 </html>

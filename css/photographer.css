@@ -198,10 +198,66 @@ form textarea {
   border-radius: 5px;
 }
 
+/* .lightbox {
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(219, 219, 219, 0.7);
+  z-index: 200;
+}
+
+.lightbox_next,
+.lightbox_prev {
+  border: none;
+  width: 48px;
+  height: 30px;
+  font-size: 48px;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  margin-top: -14px;
+  z-index: 11;
+  background-color: rgba(219, 219, 219, 0.7);
+  cursor: pointer;
+}
+
+.lightbox_prev {
+  right: auto;
+  left: 0%;
+}
+
+.lightbox_close {
+  width: 15px;
+  height: 15px;
+  font-size: 48px;
+  border: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: rgba(219, 219, 219, 0.7);
+  cursor: pointer;
+}
+
+.lightbox_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 50px;
+  margin-right: 50px;
+  min-width: 100vh;
+}
+
+.lightbox_container img {
+  max-width: 100%;
+  height: auto;
+} */
+
 .lightbox {
   display: none;
   position: fixed;
-  z-index: 999999;
+  z-index: 200;
   left: 0;
   top: 0;
   width: 100%;
@@ -344,6 +400,14 @@ form textarea {
   bottom: 2%;
   left: 15%;
   margin: auto;
-  font-size: 1.5rem;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 400;
+} 
+
+.lightbox_loader {
+  width: 145px;
+  height: 145px;
+  opacity: .5;
+  background: url(../assets/icons/loader.svg) center center no-repeat;
+  z-index: 300;
 }
