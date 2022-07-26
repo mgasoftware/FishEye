@@ -48,9 +48,35 @@ async function displayData(photographer) {
 };
 
 
-async function displayMedia(medias) {
+async function displayMedia(medias, photographer) {
     const photographBody = document.querySelector(".photograph-body");
-    console.log(medias.media);
+    const photographLikes = document.querySelector(".photograph-like");
+    let likesCount = 0;
+    let price = '';
+    photographBody.innerHTML = ``;
+    photographLikes.innerHTML = ``;
+
+    for (let i = 0; i < medias.media.length; i++) {
+        likesCount = likesCount + medias.media[i].likes;
+    }
+
+    const divLikeHeart = document.createElement('div');
+    const p = document.createElement('p');
+    const pPrice = document.createElement('p');
+    const i = document.createElement('i');
+
+    p.textContent = likesCount; 
+    price = photographer.price;
+    pPrice.className = "price";
+    pPrice.textContent = price + '€/jour';
+    i.classList.add('fa-solid');
+    i.classList.add('fa-heart');
+    divLikeHeart.className = "photograph-all-likes";
+
+    divLikeHeart.appendChild(p);
+    divLikeHeart.appendChild(i);
+    photographLikes.appendChild(pPrice);
+    photographLikes.appendChild(divLikeHeart);
 
     medias.media.forEach(media => {
         const mediaModel = mediaFactory(media);
@@ -58,13 +84,15 @@ async function displayMedia(medias) {
         photographBody.appendChild(userMediaDOM);
     });
 
+    console.log(medias.media);
 };
 
 async function init() {
     const { photographer } = await foundSelectPhotographer();
-    const medias  = await foundMedia();
+    const medias = await foundMedia();
     displayData(photographer);
-    displayMedia(medias);
+    displayMedia(medias, photographer);
+    filterMedias(medias, photographer);
 };
 
 init();

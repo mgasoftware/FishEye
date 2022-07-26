@@ -16,8 +16,10 @@ function mediaFactory(data) {
         div.className = "media";
         divMediaInfos.className = "media-infos";
         divLikeHeart.className = "media-likes";
+        divLikeHeart.setAttribute('liked', 'false');
+        divLikeHeart.setAttribute('count', likes);
         pTitle.textContent = title;
-        pLikes.textContent = likes;
+        pLikes.textContent = likes ;
         i.classList.add('fa-solid'); 
         i.classList.add('fa-heart');
 
@@ -27,7 +29,6 @@ function mediaFactory(data) {
             img.setAttribute("src", picture);
             img.setAttribute("alt", title);
             img.setAttribute('id', id);
-            img.setAttribute('onclick', 'Lightbox.init()');
 
             div.appendChild(img);
         }
@@ -35,7 +36,6 @@ function mediaFactory(data) {
             const vid = document.createElement('video');
             const src = document.createElement('source');
             vid.setAttribute('src', videoMedia);
-            vid.setAttribute('onclick', 'Lightbox.init()');
             vid.setAttribute('alt', title);
             div.appendChild(vid);
         }

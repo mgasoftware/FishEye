@@ -21,6 +21,17 @@
       <div class="photograph-info"></div>
       <button class="contact_button" aria-label="Contact Me" onclick="displayModal()">Contactez-moi</button>
     </div>
+    <div class="photograph-filter">
+      <h3>Trier par</h3>
+      <div class="select" tabindex="1">
+        <input class="selectopt" name="test" type="radio" id="opt1" checked>
+        <label for="opt1" class="option">Popularité</label>
+        <input class="selectopt" name="test" type="radio" id="opt2">
+        <label for="opt2" class="option">Date</label>
+        <input class="selectopt" name="test" type="radio" id="opt3">
+        <label for="opt3" class="option">Titre</label>
+      </div>
+    </div>
     <div class="photograph-body"></div>
   </main>
   <aside class="photograph-like" aria-hidden="false">
@@ -62,6 +73,8 @@
   <script src="scripts/pages/photographer.js"></script>
   <script src="scripts/factories/media.js"></script>
   <script src="scripts/utils/lightbox.js"></script>
+  <script src="scripts/utils/addlikes.js"></script>
+  <script src="scripts/utils/filter.js"></script>
 </body>
 
 </html>

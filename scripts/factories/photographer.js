@@ -45,20 +45,15 @@ function photographerFactory(data) {
 
     function getProfilInfoDOM() {
         const div = document.querySelector('.photograph-info');
-        const div2 = document.querySelector('.photograph-like');
         const h2 = document.createElement('h2');
         h2.textContent = name;
         const h3 = document.createElement('h3');
         h3.textContent = city + ', ' + country;
         const p = document.createElement('p');
         p.textContent = tagline;
-        const p2 = document.createElement('p');
-        p2.className = "price";
-        p2.textContent = price + '€/jour';
         div.appendChild(h2);
         div.appendChild(h3);
         div.appendChild(p);
-        div2.appendChild(p2);
         return (div);
     }
 

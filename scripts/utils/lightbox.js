@@ -22,7 +22,7 @@ class Lightbox {
     }
 
     loadImage(url, title) {
-        let checkIMG = url.substr(-1);
+        let checkIMG = url.substr(-3);
         this.url = null;
         this.title = null;
 
@@ -39,7 +39,7 @@ class Lightbox {
 
         container.appendChild(loader);
 
-        if (checkIMG !== '4') {
+        if (checkIMG !== 'mp4') {
             const image = new Image();
             image.onload = () => {
                 container.removeChild(loader);
@@ -131,3 +131,7 @@ class Lightbox {
         return dom
     }
 }
+
+window.setTimeout(() => {
+    Lightbox.init();
+}, 500);
