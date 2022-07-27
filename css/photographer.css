@@ -381,11 +381,12 @@ form textarea {
   margin: auto;
   height: 85%;
   width: 70%;
+  /* width: 1050px;
+  height: 900px; */
   position: absolute;
   border-radius: 0.6rem;
   background-color: #868686;
-  -o-object-fit: cover;
-  object-fit: cover;
+  object-fit:fill;
 }
 
 .lightbox .lightbox-windows .container-slides video {
@@ -398,9 +399,16 @@ form textarea {
   width: 70%;
   border-radius: 0.6rem;
   background-color: #868686;
-  -o-object-fit: cover;
-  object-fit: cover;
+  object-fit: fill;
 }
+
+.titre-media-lightbox {
+  position: absolute;
+  bottom: 3%;
+  left: 15%; 
+  font-size: 24px;
+  font-weight: 400;
+} 
 
 .lightbox .lightbox-windows .commandes {
   top: 0px;
@@ -467,16 +475,6 @@ form textarea {
 .lightbox .lightbox-windows .commandes button:nth-child(2) em {
   right: 7%;
 }
-
-.titre-media-lightbox {
-  position: absolute;
-  margin-right: 10%;
-  bottom: 2%;
-  left: 15%;
-  margin: auto;
-  font-size: 24px;
-  font-weight: 400;
-} 
 
 .lightbox_loader {
   width: 145px;
