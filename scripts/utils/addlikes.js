@@ -1,6 +1,12 @@
 class AddLikes {
     static init() {
         const likes = Array.from(document.querySelectorAll('.media-likes'));
+        likes.forEach(like => like.addEventListener('keyup', e => {
+            e.preventDefault();
+            if (e.key === 'Enter') {
+                new AddLikes(e.currentTarget.getAttribute('liked'), like.childNodes[0], e.currentTarget.getAttribute('count'), like);
+            }
+        }))
         likes.forEach(like => like.addEventListener('click', e => {
             e.preventDefault();
             new AddLikes(e.currentTarget.getAttribute('liked'), like.childNodes[0], e.currentTarget.getAttribute('count'), like);

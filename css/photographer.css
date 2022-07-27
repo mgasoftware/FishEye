@@ -104,13 +104,13 @@
   pointer-events:all;
 }
 
-input {
+.select input {
   opacity:0;
   position:absolute;
   left:-99999px;
 }
 
-input:checked + label {
+.select input:checked + label {
   order: 1;
   z-index:2;
   background:#901C1C;
@@ -118,7 +118,7 @@ input:checked + label {
   position:relative;
 }
 
-input:checked + label:after {
+.select input:checked + label:after {
   content:'';
   width: 0; 
 	height: 0; 
@@ -132,7 +132,7 @@ input:checked + label:after {
   z-index:3;
 }
 
-input:checked + label:before {
+.select input:checked + label:before {
   position:absolute;
   right:0;
   height: 40px;

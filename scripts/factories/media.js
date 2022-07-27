@@ -22,21 +22,23 @@ function mediaFactory(data) {
         pLikes.textContent = likes ;
         i.classList.add('fa-solid'); 
         i.classList.add('fa-heart');
+        i.setAttribute('alt', 'like');
+        i.setAttribute('tabindex', '0');
 
         if (image !== undefined) {
             const img = document.createElement('img');
 
             img.setAttribute("src", picture);
             img.setAttribute("alt", title);
-            img.setAttribute('id', id);
+            img.setAttribute('tabindex', '0');
 
             div.appendChild(img);
         }
         else {
             const vid = document.createElement('video');
-            const src = document.createElement('source');
             vid.setAttribute('src', videoMedia);
             vid.setAttribute('alt', title);
+            vid.setAttribute('tabindex', '0');
             div.appendChild(vid);
         }
         divMediaInfos.appendChild(pTitle);

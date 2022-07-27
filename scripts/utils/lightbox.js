@@ -3,6 +3,13 @@ class Lightbox {
         const links = Array.from(document.querySelectorAll('.media img, .media video'));
         const listMedias = links.map(link => link.getAttribute('src'));
         const listTitles = links.map(link => link.getAttribute('alt'));
+
+        links.forEach(link => link.addEventListener('keyup', e => {
+            e.preventDefault();
+            if (e.key === 'Enter') {
+                new Lightbox(e.currentTarget.getAttribute('src'), listMedias, e.currentTarget.getAttribute('alt'), listTitles);
+            }
+        }));
         links.forEach(link => link.addEventListener('click', e => {
             e.preventDefault();
             new Lightbox(e.currentTarget.getAttribute('src'), listMedias, e.currentTarget.getAttribute('alt'), listTitles);
@@ -26,9 +33,11 @@ class Lightbox {
         this.url = null;
         this.title = null;
 
+        const main = document.querySelector('main');
         const lightbox = document.querySelector('.lightbox');
         const container = this.element.querySelector('.container-slides');
         const loader = document.createElement('div');
+        const buttonLeft = this.element.querySelector('.left');
 
         loader.classList.add('lightbox_loader');
         const textMedia = document.createElement('h2');
@@ -36,6 +45,7 @@ class Lightbox {
         container.innerHTML = '';
         main.setAttribute('aria-hidden', 'true');
         lightbox.setAttribute('aria-hidden', 'false');
+        buttonLeft.focus();
 
         container.appendChild(loader);
 
@@ -68,6 +78,7 @@ class Lightbox {
 
     close(e) {
         e.preventDefault();
+        const main = document.querySelector('main');
         const dom = document.getElementById('lightbox');
         main.setAttribute('aria-hidden', 'false');
         dom.setAttribute('aria-hidden', 'true');
@@ -107,7 +118,7 @@ class Lightbox {
         }
     }
 
-    buildDOM(url) {
+    buildDOM() {
         const dom = document.getElementById('lightbox');
         dom.style.display = "block";
         dom.innerHTML = `<div class="lightbox-windows">
@@ -115,14 +126,14 @@ class Lightbox {
                             </ul>
                             <div class="commandes">
                                 <button class="left" aria-label="Previous image">
-                                <em class="fas fa-chevron-left"></em>
-                            </button>
-                            <button class="right" aria-label="Next image">
-                                <em class="fas fa-chevron-right"></em>
-                            </button>
-                            <button class="close" aria-label="Close dialog">
-                                <em class="fas fa-times close-lightbox-media"></em>
-                            </button>
+                                    <em class="fas fa-chevron-left"></em>
+                                </button>
+                                <button class="right" aria-label="Next image">
+                                    <em class="fas fa-chevron-right"></em>
+                                </button>
+                                <button class="close" aria-label="Close dialog">
+                                    <em class="fas fa-times close-lightbox-media"></em>
+                                </button>
                             </div>
                         </div>`
         dom.querySelector('.close').addEventListener('click', this.close.bind(this));

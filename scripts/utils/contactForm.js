@@ -20,6 +20,7 @@ async function displayModal() {
     aside.setAttribute('aria-hidden', 'true');
     modal.setAttribute('aria-hidden', 'false');
     modal.focus();
+    inputs[0].focus();
 }
 
 function closeModal() {
@@ -30,8 +31,6 @@ function closeModal() {
     aside.setAttribute('aria-hidden', 'false');
     modal.setAttribute('aria-hidden', 'true');
 }
-
-
 
 const resetForm = () => {
     inputs.forEach(input => {
