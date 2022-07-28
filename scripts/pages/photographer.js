@@ -83,8 +83,6 @@ async function displayMedia(medias, photographer) {
     const userMediaDOM = mediaModel.getUserMediaPicture();
     photographBody.appendChild(userMediaDOM);
   });
-
-  console.log(medias.media);
 }
 
 async function init() {

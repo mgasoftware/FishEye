@@ -66,6 +66,7 @@
   display:flex;
   flex-direction: column;
   position:relative;
+  cursor: pointer;
   color: white;
   width: 170px;
   height: 69px;
@@ -92,7 +93,6 @@
   box-sizing:border-box;
   overflow:hidden;
   white-space:nowrap;
-  
 }
 
 .option:hover {
@@ -102,6 +102,7 @@
 .select:focus .option {
   position:relative;
   pointer-events:all;
+  cursor: pointer;
 }
 
 .select input {
@@ -381,8 +382,6 @@ form textarea {
   margin: auto;
   height: 85%;
   width: 70%;
-  /* width: 1050px;
-  height: 900px; */
   position: absolute;
   border-radius: 0.6rem;
   background-color: #868686;

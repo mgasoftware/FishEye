@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -22,7 +22,7 @@
     </div>
     <div class="photograph-filter">
       <h3>Trier par</h3>
-      <div class="select" tabindex="0" aria-labelledby="Order body">
+      <div class="select" tabindex="0"  aria-haspopup="listbox">
         <input class="selectopt" name="test" type="radio" id="opt1" checked>
         <label for="opt1" class="option">Popularité</label>
         <input class="selectopt" name="test" type="radio" id="opt2">
@@ -35,33 +35,33 @@
   </main>
   <aside class="photograph-like" aria-hidden="false">
   </aside>
-  <div id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="Contactez Moi">
+  <div id="contact_modal" aria-hidden="true" role="dialog" aria-describedby="contact-me">
     <div class="modal">
       <div class="modal-header">
-        <div class="contact-me">
+        <div class="contact-me" id="contact-me">
           <h2>Contactez-moi</h2>
         </div>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" alt="Close Contact form" onclick="closeModal()" />
       </div>
       <form id='form'>
-        <div class="formData">
+        <div class="formData" aria-labelledby="first">
           <label>Prénom</label>
-          <input type="text" id="first" name="first" aria-labelledby="First name" />
+          <input type="text" id="first" name="first" />
         </div>
         <div class="formData">
-          <label>Nom</label>
-          <input type="text" id="last" name="last" aria-labelledby="Last name" />
+          <label aria-labelledby="last">Nom</label>
+          <input type="text" id="last" name="last" />
         </div>
         <div class="formData">
-          <label>Email</label>
-          <input type="email" id="email" name="email" aria-labelledby="Email" />
+          <label aria-labelledby="email">Email</label>
+          <input type="email" id="email" name="email" />
         </div>
         <div class="formData">
-          <label>Votre message</label>
-          <textarea class="msg" type="text" id="message" name="message" aria-labelledby="Your message">
+          <label aria-labelledby="message">Votre message</label>
+          <textarea class="msg" id="message" name="message">
           </textarea>
         </div>
-        <button class="contact_button" aria-labelledby="send">Envoyer</button>
+        <button class="contact_button" aria-label="send">Envoyer</button>
       </form>
     </div>
   </div>
