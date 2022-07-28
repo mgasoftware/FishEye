@@ -1,9 +1,11 @@
+//Fonction factory de la création des medias des photographes
 function mediaFactory(data) {
   const { id, photographerID, title, image, video, likes, date, price } = data;
 
   const picture = `assets/images/${image}`;
   const videoMedia = `assets/videos/${video}`;
 
+  //Fonction de création du DOM des médias
   function getUserMediaPicture() {
     const article = document.createElement('article');
     const div = document.createElement('div');
@@ -22,7 +24,7 @@ function mediaFactory(data) {
     pLikes.textContent = likes ;
     i.classList.add('fa-solid'); 
     i.classList.add('fa-heart');
-    i.setAttribute('alt', 'like');
+    i.setAttribute('aria-label', 'heart');
     i.setAttribute('tabindex', '0');
 
     if (image !== undefined) {

@@ -1,8 +1,10 @@
+//fonction factory de la création des photographe
 function photographerFactory(data) {
   const { name, id, city, country, tagline, price, portrait } = data;
 
   const picture = `assets/photographers/${portrait}`;
 
+  //Fonction de création du dom pour la page d'accueil
   function getUserCardDOM() {
     const article = document.createElement('article');
     const img = document.createElement('img');
@@ -32,6 +34,7 @@ function photographerFactory(data) {
     return (article);
   }
 
+  //Fonction de création du dom du header photograph picture
   function getProfilIMGDOM() {
     const div = document.createElement('div');
     div.className = "picture";
@@ -42,6 +45,7 @@ function photographerFactory(data) {
     return (div);
   }
 
+  //Fonction de création du dom du header photograph info
   function getProfilInfoDOM() {
     const div = document.querySelector('.photograph-info');
     const h2 = document.createElement('h2');
@@ -56,6 +60,7 @@ function photographerFactory(data) {
     return (div);
   }
 
+  //Fonction de création du dom du header photograph button and name
   function getProfilNameDOM() {
     const div = document.querySelector('.contact-me');
     const h2 = document.createElement('h2');

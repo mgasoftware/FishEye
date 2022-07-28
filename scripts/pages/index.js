@@ -20,6 +20,7 @@ async function displayData(photographers) {
   });
 }
 
+//Fonction d'initialisation des fonctions
 async function init() {
   const { photographers } = await getPhotographers();
   displayData(photographers);

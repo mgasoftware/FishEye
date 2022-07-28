@@ -1,34 +1,39 @@
+//Classe qui permet l'ouverture et le traitement de la lightbox
 class Lightbox {
   static init() {
     const links = Array.from(document.querySelectorAll('.media img, .media video'));
     const listMedias = links.map(link => link.getAttribute('src'));
     const listTitles = links.map(link => link.getAttribute('alt'));
 
+    //Méthode permettant de lancer la classe suivant l'element d'où l'user lance la lightbox par la touche entrer
     links.forEach(link => link.addEventListener('keyup', e => {
       e.preventDefault();
       if (e.key === 'Enter') {
         new Lightbox(e.currentTarget.getAttribute('src'), listMedias, e.currentTarget.getAttribute('alt'), listTitles);
       }
     }));
+    //Méthode permettant de lancer la classe suivant l'element d'où l'user lance la lightbox par le clic
     links.forEach(link => link.addEventListener('click', e => {
       e.preventDefault();
       new Lightbox(e.currentTarget.getAttribute('src'), listMedias, e.currentTarget.getAttribute('alt'), listTitles);
     }))
   }
 
+  //Méthode permettant d'initialiser les fonctions et objet de la classe
   constructor(url, listMedias, title, listTitles) {
     this.element = this.buildDOM(url);
     this.listMedias = listMedias;
     this.listTitles = listTitles;
 
-    this.loadImage(url, title);
+    this.loadMedia(url, title);
     this.onKeyUp = this.onKeyUp.bind(this);
 
     document.body.appendChild(this.element);
     document.addEventListener('keyup', this.onKeyUp);
   }
 
-  loadImage(url, title) {
+  //Fonction permettant de charger les medias et les titres dans le DOM
+  loadMedia(url, title) {
     let checkIMG = url.substr(-3);
     this.url = null;
     this.title = null;
@@ -76,6 +81,7 @@ class Lightbox {
     }
   }
 
+  //Fonction de fermeture de la lightbox
   close(e) {
     e.preventDefault();
     const main = document.querySelector('main');
@@ -86,6 +92,7 @@ class Lightbox {
     document.removeEventListener('keyup', this.onKeyUp);
   }
 
+  //Fonction permettant de passer au media suivant
   next(e) {
     e.preventDefault();
     let i = this.listMedias.findIndex(listMedia => listMedia === this.url);
@@ -94,9 +101,10 @@ class Lightbox {
       i = -1;
       y = -1;
     }
-    this.loadImage(this.listMedias[i + 1], this.listTitles[y + 1]);
+    this.loadMedia(this.listMedias[i + 1], this.listTitles[y + 1]);
   }
 
+  //Fonction permettant de passer au media precedent
   prev(e) {
     e.preventDefault();
     let i = this.listMedias.findIndex(listMedia => listMedia === this.url);
@@ -105,9 +113,10 @@ class Lightbox {
       i = this.listMedias.length;
       y = this.listTitles.length;
     }
-    this.loadImage(this.listMedias[i - 1], this.listTitles[y - 1]);
+    this.loadMedia(this.listMedias[i - 1], this.listTitles[y - 1]);
   }
 
+  //Fonction d'activation de l'accessibilité par les touche du clavier
   onKeyUp(e) {
     if (e.key === 'Escape') {
       this.close(e);
@@ -118,6 +127,7 @@ class Lightbox {
     }
   }
 
+  //Fonction de création du DOM principal de la lightbox
   buildDOM() {
     const dom = document.getElementById('lightbox');
     dom.style.display = "block";
@@ -143,6 +153,7 @@ class Lightbox {
   }
 }
 
+//Lancement de la classe lightbox au lancement du site avec un délai de 500ms pour récupérer les medias afin d'assurer le chargement des média
 window.setTimeout(() => {
   Lightbox.init();
 }, 500);

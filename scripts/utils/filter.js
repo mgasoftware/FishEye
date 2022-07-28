@@ -1,3 +1,4 @@
+//Fonction du flitre des medias
 function filterMedias(medias, photographer) {
   const select = document.querySelector('.select');
   const selectopt = document.querySelectorAll('.selectopt');

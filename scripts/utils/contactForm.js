@@ -5,12 +5,14 @@ const main = document.querySelector("main");
 const aside = document.querySelector("aside");
 const inputs = document.querySelectorAll("#first, #last, #email, #message");
 
+//Fonction d'activation de la fermeture du modale lors de l'appuie sur echap
 function onKeyUp(e) {
   if (e.code === "Escape") {
     closeModal();
   }
 }
 
+//Fonction d'affichage du modal
 async function displayModal() {
   document.addEventListener('keyup', onKeyUp);
 
@@ -23,6 +25,7 @@ async function displayModal() {
   inputs[0].focus();
 }
 
+//Fonction de la fermeture du modal
 function closeModal() {
   document.removeEventListener('keyup', onKeyUp);
   modal.style.display = "none";
@@ -32,12 +35,14 @@ function closeModal() {
   modal.setAttribute('aria-hidden', 'true');
 }
 
+//Foction du reset du formulaire
 const resetForm = () => {
   inputs.forEach(input => {
     input.value = '';
   });
 }
 
+//Fonction de l'envoi du formulaire
 const formSubmit = e => {
   const firstName = document.getElementById('first');
   const lastName = document.getElementById('last');
