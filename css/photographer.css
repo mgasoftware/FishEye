@@ -385,7 +385,7 @@ form textarea {
   position: absolute;
   border-radius: 0.6rem;
   background-color: #868686;
-  object-fit:fill;
+  object-fit:cover;
 }
 
 .lightbox .lightbox-windows .container-slides video {
@@ -398,7 +398,7 @@ form textarea {
   width: 70%;
   border-radius: 0.6rem;
   background-color: #868686;
-  object-fit: fill;
+  object-fit: cover;
 }
 
 .titre-media-lightbox {

@@ -42,7 +42,6 @@ class Lightbox {
     const lightbox = document.querySelector('.lightbox');
     const container = this.element.querySelector('.container-slides');
     const loader = document.createElement('div');
-    const buttonLeft = this.element.querySelector('.left');
 
     loader.classList.add('lightbox_loader');
     const textMedia = document.createElement('h2');
@@ -50,7 +49,6 @@ class Lightbox {
     container.innerHTML = '';
     main.setAttribute('aria-hidden', 'true');
     lightbox.setAttribute('aria-hidden', 'false');
-    buttonLeft.focus();
 
     container.appendChild(loader);
 

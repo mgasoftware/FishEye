@@ -22,7 +22,7 @@
     </div>
     <div class="photograph-filter">
       <h3>Trier par</h3>
-      <div class="select" tabindex="0"  aria-haspopup="listbox">
+      <div class="select" tabindex="0"  aria-haspopup="true">
         <input class="selectopt" name="test" type="radio" id="opt1" checked>
         <label for="opt1" class="option">Popularité</label>
         <input class="selectopt" name="test" type="radio" id="opt2">
@@ -45,19 +45,19 @@
       </div>
       <form id='form'>
         <div class="formData" aria-labelledby="first">
-          <label>Prénom</label>
+          <label for="first">Prénom</label>
           <input type="text" id="first" name="first" />
         </div>
         <div class="formData">
-          <label aria-labelledby="last">Nom</label>
+          <label for="last">Nom</label>
           <input type="text" id="last" name="last" />
         </div>
         <div class="formData">
-          <label aria-labelledby="email">Email</label>
+          <label for="email">Email</label>
           <input type="email" id="email" name="email" />
         </div>
         <div class="formData">
-          <label aria-labelledby="message">Votre message</label>
+          <label for="message">Votre message</label>
           <textarea class="msg" id="message" name="message">
           </textarea>
         </div>

@@ -20,11 +20,12 @@ function mediaFactory(data) {
     divLikeHeart.className = "media-likes";
     divLikeHeart.setAttribute('liked', 'false');
     divLikeHeart.setAttribute('count', likes);
+    divLikeHeart.setAttribute('aria-hidden', 'true');
     pTitle.textContent = title;
     pLikes.textContent = likes ;
     i.classList.add('fa-solid'); 
     i.classList.add('fa-heart');
-    i.setAttribute('aria-label', 'heart');
+    i.setAttribute('title', 'heart');
     i.setAttribute('tabindex', '0');
 
     if (image !== undefined) {
